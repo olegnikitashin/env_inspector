@@ -3,7 +3,7 @@ module EnvInspector
     def self.check!
       required_envs = EnvInspector.configuration.env_list
       missing_envs = required_envs.inject([]) do |memo, env|
-        memo << env if ENV[env.to_s].blank?
+        memo << env if ENV[env.to_s].empty?
         memo
       end
       unless missing_envs.empty?
