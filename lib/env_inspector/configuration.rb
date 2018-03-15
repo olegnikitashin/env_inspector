@@ -1,14 +1,16 @@
 module EnvInspector
-  def self.configuration
-    @configuration ||= Configuration.new
-  end
+  class << self
+    def configuration
+      @configuration ||= Configuration.new
+    end
 
-  def self.configuration=(configuration)
-    @configuration = configuration
-  end
+    def configuration=(configuration)
+      @configuration = configuration
+    end
 
-  def self.configure
-    yield configuration
+    def configure
+      yield configuration
+    end
   end
 
   class Configuration
